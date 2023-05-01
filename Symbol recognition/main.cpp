@@ -79,6 +79,9 @@ int main( int argc, char** argv )
         transformed = transformPerspective(boundingContour, frame, 320, 240);
         cvtColor(transformed, HSVtransformed, COLOR_BGR2HSV); // Convert the image to HSV
         inRange(HSVtransformed, Scalar(35, 68, 57), Scalar(213, 255, 128), comparison);
+	cv::namedWindow("Comparison");
+        cv::imshow("Comparison",comparison); //Display the image in the window
+
 
         float circlematch = compareImages(comparison, WBcircle);
         std::cout << "Circle matching percentage: " << circlematch<< std::endl;
